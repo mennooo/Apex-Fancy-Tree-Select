@@ -1,7 +1,7 @@
 {
     "name": "Apex FancyTree Select",
     "version": "1.0",
-    "description": "This Plug-in is used to draw a FancyTree with select option. Selected item ids could be stored into apex items. Login for Demo is: user-demo / 123456@",
+    "description": "This Plug-in is used to draw a FancyTree with select option. Selected items can be saved (the values) into different items. This Plug-in works in apex and also in native web. Login for Demo is: user-demo / 123456@",
     "keywords": ["oracle", "apex", "plugin", "dynamic action", "responsive", "notification"],
     "homepage": "https://github.com/RonnyWeiss/Apex-Fancy-Tree-Select",
     "bugs": {

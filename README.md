@@ -1,8 +1,8 @@
- # Apex-D3-Organization-Chart
+ # Apex-Fancy-Tree-Select
 
-![Screenshot](https://github.com/RonnyWeiss/Apex-D3-Organization-Chart/blob/master/screenshot.gif?raw=true)
+![Screenshot](https://github.com/RonnyWeiss/Apex-Fancy-Tree-Select/blob/master/screenshot.gif?raw=true)
 
-This Plug-in is used to a D3 Organization Chart in Apex.
+This Plug-in is used to draw a FancyTree with select option. Selected items can be saved (the values) into different items. This Plug-in works in apex and also in native web.
 
 For working Demo just click on:
 
