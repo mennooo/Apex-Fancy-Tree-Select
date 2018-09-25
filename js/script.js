@@ -1,5 +1,5 @@
 var fancyTree = (function () {
-    var scriptVersion = "1.0";
+    var scriptVersion = "1.1";
     var util = {
         version: "1.0.1",
         escapeHTML: function (str) {
@@ -350,42 +350,43 @@ var fancyTree = (function () {
                 prepareData = function (data) {
                     try {
                         /* draw cards and add it to the rows */
-                        if (data.row && data.row.length > 0) {
-                            // lower json from sql
-                            var _root = util.convertJSON2LowerCase(data.row);
 
-                            // fill up icons
-                            if (configJSON.typeSettings) {
-                                $.each(_root, function (i, val) {
-                                    configJSON.typeSettings.forEach(function (obj) {
-                                        if (obj.id == val.type) {
-                                            if (!val.icon || val.icon.length == 0) {
-                                                val.icon = "fa " + obj.icon;
-                                            }
+                        // lower json from sql
+                        var _root = util.convertJSON2LowerCase(data.row);
+
+                        // fill up icons
+                        if (configJSON.typeSettings) {
+                            $.each(_root, function (i, val) {
+                                configJSON.typeSettings.forEach(function (obj) {
+                                    if (obj.id == val.type) {
+                                        if (!val.icon || val.icon.length == 0) {
+                                            val.icon = "fa " + obj.icon;
                                         }
-                                    });
+                                    }
                                 });
-                            }
-
-                            // restructure json for fancyTree
-                            var dataArr = [];
-
-                            for (var i in _root) {
-                                dataArr.push(_root[i]);
-                            }
-                            _root = treeSort({
-                                q: dataArr
                             });
-
-                            _root = buildTree({
-                                q: _root
-                            });
-
-                            return _root;
-                        } else {
-                            $(configJSON.regionID).empty();
-                            util.noDataMessage.show(configJSON.regionID, configJSON.noDataMessage);
                         }
+
+                        // restructure json for fancyTree
+                        var dataArr = [];
+
+                        for (var i in _root) {
+                            dataArr.push(_root[i]);
+                        }
+                        _root = treeSort({
+                            q: dataArr
+                        });
+
+                        _root = buildTree({
+                            q: _root
+                        });
+                        if (data.row && data.row.length > 0) {
+                            util.noDataMessage.hide(configJSON.regionID);
+                        } else {
+                            util.noDataMessage.show(configJSON.regionID, configJSON.noDataMessage);
+
+                        }
+                        return _root;
                     } catch (e) {
                         util.loader.stop(configJSON.regionID);
                         $(configJSON.regionID).empty();
